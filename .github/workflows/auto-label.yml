@@ -18,12 +18,7 @@ jobs:
         id: pr
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          RUN_ID: ${{ github.event.workflow_run.id }}
         run: |
-          PR=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$RUN_ID/attempts/1/jobs" \
-            --jq 'empty' 2>/dev/null || true)
-
-          # workflow_run exposes the head branch; retrieve PR from it
           HEAD_BRANCH="${{ github.event.workflow_run.head_branch }}"
           echo "branch=$HEAD_BRANCH" >> "$GITHUB_OUTPUT"
 
