@@ -41,18 +41,3 @@ jobs:
         with:
           name: bottles_${{ matrix.os }}
           path: "*.bottle.*"
-
-  pr-pull:
-    needs: test-bot
-    if: github.event_name == 'pull_request'
-    runs-on: ubuntu-22.04
-    permissions:
-      pull-requests: write
-    steps:
-      - name: Label PR for bottle merge
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
-        run: |
-          gh label create pr-pull --repo "$GITHUB_REPOSITORY" --force 2>/dev/null || true
-          gh pr edit "$PR_NUMBER" --repo "$GITHUB_REPOSITORY" --add-label pr-pull

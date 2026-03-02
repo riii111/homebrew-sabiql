@@ -5,9 +5,13 @@ on:
     types:
       - labeled
 
+concurrency:
+  group: publish-pr-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
 jobs:
   pr-pull:
-    if: contains(github.event.pull_request.labels.*.name, 'pr-pull')
+    if: github.event.label.name == 'pr-pull'
     runs-on: ubuntu-22.04
     permissions:
       contents: write
