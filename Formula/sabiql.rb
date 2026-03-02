@@ -13,8 +13,9 @@ class Sabiql < Formula
 
   def caveats
     <<~EOS
-      sabiql requires psql (PostgreSQL client) in your PATH.
-      Install PostgreSQL or run: brew install libpq
+      sabiql requires the psql CLI in your PATH.
+      To install psql without the full PostgreSQL server:
+        brew install libpq && brew link --force libpq
     EOS
   end
 
