@@ -5,7 +5,6 @@ class Sabiql < Formula
   sha256 "7f77191ce22003d7cb41f2c4824ae3a1e8d03c28992d28293880e733198ade23"
   license "MIT"
 
-
   depends_on "rust" => :build
 
   def install
