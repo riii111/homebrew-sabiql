@@ -1,16 +1,9 @@
 class Sabiql < Formula
   desc "Fast, driver-less TUI to browse, query, and edit PostgreSQL databases"
   homepage "https://github.com/riii111/sabiql"
-  url "https://github.com/riii111/sabiql/archive/refs/tags/v1.11.0.tar.gz"
-  sha256 "039d4782d8c4243cacc69e563010b2cfaacb440deb77428e275be6e6d8ca8855"
+  url "https://github.com/riii111/sabiql/archive/refs/tags/v1.11.1.tar.gz"
+  sha256 "e8f8194db8545f91e9b7fd3d31dbca8d41f18d89509b30525eec4ab82d4ab6b6"
   license "MIT"
-
-  bottle do
-    root_url "https://github.com/riii111/homebrew-sabiql/releases/download/sabiql-1.11.0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "170950b6f6a7145c79f877986f5c49059d3f8763f503e988fa5fd1782446b90f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f6646c37e65f7bc672b242ee75cdde00fc46e5f9ddffb67f151ee74c60861414"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5d97b6a9b74d43e10f267a1c71d5e3a9fc2c741d283b7047ab1565bec6a3b5fc"
-  end
 
   depends_on "rust" => :build
 
