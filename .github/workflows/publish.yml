@@ -29,11 +29,11 @@ jobs:
 
       - name: Set up Homebrew
         if: steps.pr.outputs.number != '' && startsWith(steps.pr.outputs.branch, 'bump-sabiql-')
-        uses: Homebrew/actions/setup-homebrew@master
+        uses: Homebrew/actions/setup-homebrew@main
 
       - name: Set up git
         if: steps.pr.outputs.number != '' && startsWith(steps.pr.outputs.branch, 'bump-sabiql-')
-        uses: Homebrew/actions/git-user-config@master
+        uses: Homebrew/actions/git-user-config@main
 
       - name: Pull bottles
         if: steps.pr.outputs.number != '' && startsWith(steps.pr.outputs.branch, 'bump-sabiql-')
@@ -44,7 +44,7 @@ jobs:
 
       - name: Push commits
         if: steps.pr.outputs.number != '' && startsWith(steps.pr.outputs.branch, 'bump-sabiql-')
-        uses: Homebrew/actions/git-try-push@master
+        uses: Homebrew/actions/git-try-push@main
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: main
