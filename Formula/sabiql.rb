@@ -18,7 +18,7 @@ class Sabiql < Formula
   def install
     system "cargo", "install", "--no-default-features", *std_cargo_args
     libexec.install bin/"sabiql"
-    (bin/"sabiql").write_env_script libexec/"sabiql", PATH: "#{Formula["sqlite"].opt_bin}:$PATH"
+    (bin/"sabiql").write_env_script libexec/"sabiql", PATH: "#{formula_opt_bin("sqlite")}:$PATH"
   end
 
   def caveats
@@ -32,10 +32,10 @@ class Sabiql < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/sabiql --version")
-    sqlite3 = Formula["sqlite"].opt_bin/"sqlite3"
+    sqlite3 = formula_opt_bin("sqlite")/"sqlite3"
     sqlite_version = shell_output("#{sqlite3} --version").split.first
     assert_operator Version.new(sqlite_version), :>=, Version.new("3.41.1")
-    assert_match Formula["sqlite"].opt_bin.to_s, (bin/"sabiql").read
+    assert_match formula_opt_bin("sqlite").to_s, (bin/"sabiql").read
     output = shell_output("#{bin}/sabiql update 2>&1", 1)
     assert_match "brew upgrade sabiql", output
   end
