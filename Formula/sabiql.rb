@@ -5,6 +5,13 @@ class Sabiql < Formula
   sha256 "815ca7c5ab6be3d00c0c7a73d4470cb26969c496564259b882dad24ef8397809"
   license "MIT"
 
+  bottle do
+    root_url "https://github.com/riii111/homebrew-sabiql/releases/download/sabiql-1.15.1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "032fe5ef1bd5608789d4e48058d3b92c60973cc433bcdebd171c57f3fc9a781e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1d86ec71155cf9494dd341c75621e3590316d844575c1be850f3252aa917efa9"
+    sha256 cellar: :any,                 x86_64_linux:  "fa1de0849190bfb435fe21d3413aeff7cd7c210a1752deb30a918376e729071f"
+  end
+
   depends_on "rust" => :build
 
   def install
